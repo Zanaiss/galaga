@@ -6,7 +6,6 @@
 #include <cmath> 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include "constants.h"
 #include "bullet.h"
 #include "player.h"
@@ -999,12 +998,9 @@ void showSettingsScreen(sf::RenderWindow& window, sf::Font& font, int difficulty
     if (texMenuBg.getSize().x > 0) window.draw(spriteMenuBg);
     char buf[256];
     sprintf(buf, "SETTINGS\n\n1 - Easy  2 - Medium  3 - Hard\n\nUp/Down Arrow - Volume: %d%%\n\nEsc - Back", masterVolume);
-    sf::Text t(buf, font, 35);
+    sf::Text t(buf, font, 25);
     t.setFillColor(sf::Color::Cyan);
-
-    sf::FloatRect textRect = t.getLocalBounds();
-    t.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-    t.setPosition((float)window.getSize().x / 2.0f, (float)window.getSize().y / 2.0f);
+    t.setPosition(120, 160);
     window.draw(t);
 }
 
@@ -1257,7 +1253,7 @@ void startNewGame()
     levelVal = 1;
     diveChance = 2;
     enemySpeed = 70.0f;
-    
+
     setupEnemies();
     initPlayerBullets();
     initEnemyBullets();
@@ -1431,5 +1427,4 @@ int main()
 }
 
 // masla hi nai koi itna easy tou hei na
-
 
